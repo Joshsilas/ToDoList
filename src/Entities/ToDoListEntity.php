@@ -6,10 +6,21 @@ class ToDoListEntity implements \JsonSerializable
 {
     private int $id;
     private string $task;
+    private bool $completed;
+
+    public function getId(): int
+    {
+        return $this->id;
+    }
 
     public function getTask(): string
     {
         return $this->task;
+    }
+
+    public function isCompleted(): bool
+    {
+        return $this->completed;
     }
 
 
@@ -18,6 +29,7 @@ class ToDoListEntity implements \JsonSerializable
         return [
             "id" => $this->id,
             "task" => $this->task,
+            "completed" => $this->completed,
         ];
     }
 }

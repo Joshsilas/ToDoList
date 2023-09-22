@@ -8,8 +8,16 @@ class ToDoListViewHelper
     {
         $output = '';
         foreach ($tasks as $task) {
-            $output .= '<li>' . $task->getTask() . '</li>';
+            $output .=
+                '<div class="form-check">
+                    <form method="POST" action="/completeTask">
+                    <input type="hidden" value="'. $task->getId() . '" name="id">
+                        <input class="btn btn-success mt-1" type="submit" value="Complete?" >
+                        <label class="form-check-label">' . $task->getTask() . '
+                    </form>
+                 </div>';
         }
         return $output;
     }
 }
+

@@ -18,5 +18,8 @@ return function (App $app) {
 
     $app->get('/courses', CoursesAPIController::class);
     $app->get('/', \App\Controllers\ToDoListController::class);
+    $app->post('/addTask', \App\Controllers\AddToToDoListController::class);
+    $app->post('/completeTask', \App\Controllers\CompleteATaskController::class);
+    $app->get('/showCompletedTask', \App\Controllers\ShowCompletedATaskCollector::class);
 
 };
